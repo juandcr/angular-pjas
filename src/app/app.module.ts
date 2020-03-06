@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import {ReactiveFormsModule } from '@angular/forms';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ComprobanteComponent } from './components/comprobante/comprobante.component';
@@ -18,6 +20,7 @@ import {APP_ROUTING} from './app.routes'
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { ExampleComponent } from './components/example/example.component';
+import { Dinamic2Component } from './components/dinamic2/dinamic2.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,7 @@ import { ExampleComponent } from './components/example/example.component';
     ComprobanteComponent,
     NavbarComponent,
     HomeComponent,
-    ExampleComponent,DinamicComponent,
+    ExampleComponent,DinamicComponent, Dinamic2Component,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,9 @@ import { ExampleComponent } from './components/example/example.component';
     NgbModule,
     FormsModule,
     HttpClientModule,
-    APP_ROUTING
+    APP_ROUTING,
+    ReactiveFormsModule
+
 
   ],
   providers: [ComprobanteService],
