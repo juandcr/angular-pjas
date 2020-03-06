@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ComprobanteService } from 'src/app/services/comprobante.service';
-import { Comprobante, Emisor, CFDIRelacionado, Receptor, Concepto, RetencionConcepto, TrasladoConcepto, InformacionAduaneraConcepto, Parte, InformacionAduaneraParte, Impuesto, Retencion, Traslado } from 'src/app/models/comprobante.model'
+import { ComprobanteService } from '../../services/comprobante.service';
+import { Comprobante, Emisor, CFDIRelacionado, Receptor, Concepto, RetencionConcepto, TrasladoConcepto, InformacionAduaneraConcepto, Parte, InformacionAduaneraParte, Impuesto, Retencion, Traslado } from '../../models/comprobante.model'
 
 @Component({
   selector: 'app-comprobante',
