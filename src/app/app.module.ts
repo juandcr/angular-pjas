@@ -8,6 +8,7 @@ import { ComprobanteService } from './services/comprobante.service';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {DinamicComponent} from './components/dinamic/dinamic.component';
 
 /*RUTAS */
 import {APP_ROUTING} from './app.routes'
@@ -24,7 +25,7 @@ import { ExampleComponent } from './components/example/example.component';
     ComprobanteComponent,
     NavbarComponent,
     HomeComponent,
-    ExampleComponent
+    ExampleComponent,DinamicComponent,
   ],
   imports: [
     BrowserModule,
