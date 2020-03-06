@@ -1,18 +1,31 @@
-<form [formGroup] ="parentForm">
-  <label for ="firstName"> First Name
-    <input type="text" name="firstName" id="firstName" formControlName="firstName">
-  </label>
-  <br>
+<form [formGroup] ="parentForm" class="form-group">
+  <div class="card">
+    <div class="card-header">
+      Personal Data
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <label for ="firstName"> First Name</label>
+          <input type="text" name="firstName" id="firstName" formControlName="firstName" class="form-control">
+        </div>
+        <div class="col-md-6">
+          <label for ="lastName"> Last Name</label>
+          <input type="text" name="lastName" id="lastName" formControlName="lastName" class="form-control">
+        </div>
+      </div>
 
-  <label for ="lastName"> Last Name
-    <input type="text" name="firstName" id="firstName" formControlName="firstName">
-  </label>
-  <br>
-
-  <dinamic [parentForm]="parentForm"></dinamic>
-
-  <br>
-
+      <div class="card mt-3">
+          <div class="card-header">
+            Contacto
+          </div>
+          <div class="card-body">
+            <dinamic [parentForm]="parentForm"></dinamic>
+          </div>
+          
+        </div>
+    </div>
+  </div>
   <button type="submit" [disabled]="parentForm.invalid">submit</button>
   
 </form>

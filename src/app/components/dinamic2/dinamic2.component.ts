@@ -21,4 +21,7 @@ export class Dinamic2Component implements OnInit {
     this.parentForm.valueChanges.subscribe(newVal=>console.log(newVal));
   }
 
+  check(){
+    console.info(this.parentForm);
+  }
 }
