@@ -191,8 +191,8 @@
                     <div class="card-header">
                         <span>Cfdi Relacionados</span>
                         <div class="text-center">
-                            <img class="iconStyle" src="assets/Img/plus.png" (click)="addCfdiRelacionado()"
-                                class="float-center">
+                            <i class="fas fa-plus-circle" (click)="addCfdiRelacionado()" style="cursor:pointer;"></i>
+                            
                         </div>
                     </div>
                     <div class="card-body">
@@ -206,8 +206,7 @@
                                         <label class="col-form-label">{{i.uuid}}</label>
                                     </div>
                                     <div class="col-md-2">
-                                        <img (click)="removeCfdiRelacionado(i)" class="iconStyle"
-                                            src="assets/Img/delete.png">
+                                      <i (click)="removeCfdiRelacionado(i)" class="fas fa-trash-alt" style="cursor:pointer"></i>
                                     </div>
                                 </div>
                             </div>
@@ -236,7 +235,7 @@
                     <div class="card-header">
                         Conceptos
                         <div class="text-center">
-                            <img class="iconStyle" src="assets/Img/plus.png" class="float-center">
+                            <i class="fas fa-plus-circle" style="cursor:pointer;"></i>
                         </div>
                     </div>
                     <div class="card-body">
@@ -344,7 +343,7 @@
                                                             <label class="col-form-label">{{j.numeroPedimento}}</label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <img class="iconStyle" src="assets/Img/delete.png">
+                                                            <i class="fas fa-trash-alt" style="cursor:pointer"></i>
                                                         </div>
                                                     </div>
                                                 </div>
