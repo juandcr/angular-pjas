@@ -1,0 +1,387 @@
+<div class="divTop">
+    <div class="container">
+        <h1 class="titules">CREACION CFDI V 3.3</h1>
+        <i class="fab fa-accessible-icon"></i>
+    </div>
+
+    <div class="card bg-light">
+        <div class="card-header">
+            Comprobante
+        </div>
+        <div class="card-body">
+            <form (ngSubmit)="createComprobante(formComprobante)" #formComprobante="ngForm">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4">
+                        <label for="formaPago">Forma de Pago</label>
+                        <select [ngModel]="comprobante.formaPago" name="formaPago" id="formaPago" class="form-control">
+                            <option value="01"> Efectivo</option>
+                            <option value="02"> Cheque nominativo</option>
+                            <option value="03"> Transferencia electrónica</option>
+                            <option value="04"> Tarjeta de credito</option>
+                            <option value="05"> Monedero electrónico</option>
+                            <option value="06"> Dinero electrónico</option>
+                            <option value="08"> Vales de despensa</option>
+                            <option value="12"> Dación en pago</option>
+                            <option value="13"> Pago por subrogación</option>
+                            <option value="14"> Pago por consignación</option>
+                            <option value="15"> Condonación</option>
+                            <option value="17"> Compensación</option>
+                            <option value="23"> Novación</option>
+                            <option value="24"> Confusión</option>
+                            <option value="25"> Remisión de deuda</option>
+                            <option value="26"> Prescripción o caducidad</option>
+                            <option value="27"> A satisfacción del acreedor</option>
+                            <option value="28"> Tarjeta de débito</option>
+                            <option value="29"> Tarjeta de servicios</option>
+                            <option value="99"> Por definir</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <label for="subtotal">Subtotal</label>
+                        <input class="form-control" id="subtotal" type="text" placeholder="Subtotal" name="subTotal"
+                            [ngModel]="comprobante.subTotal" required #subTotal="ngModel">
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <label for="descuento">Descuento</label>
+                        <input class="form-control" id="descuento" type="text" placeholder="Descuento" name="descuento"
+                            [ngModel]="comprobante.descuento" required #descuento="ngModel">
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12 col-md-4">
+                        <label for="moneda">Moneda</label>
+                        <select [ngModel]="comprobante.moneda" name="moneda" id="moneda" class="form-control">
+                            <option value="AED"> AED</option>
+                            <option value="AFN"> AFN</option>
+                            <option value="ALL"> ALL</option>
+                            <option value="AMD"> AMD</option>
+                            <option value="ANG"> ANG</option>
+                            <option value="AOA"> AOA</option>
+                            <option value="ARS"> ARS</option>
+                            <option value="AUD"> AUD</option>
+                            <option value="AWG"> AWG</option>
+                            <option value="AZN"> AZN</option>
+                            <option value="BAM"> BAM</option>
+                            <option value="BBD"> BBD</option>
+                            <option value="BDT"> BDT</option>
+                            <option value="BGN"> BGN</option>
+                            <option value="BHD"> BHD</option>
+                            <option value="BIF"> BIF</option>
+                            <option value="BMD"> BMD</option>
+                            <option value="BND"> BND</option>
+                            <option value="BOB"> BOB</option>
+                        </select>
+
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <label for="tipoCambio">Tipo de cambio</label>
+                        <input class="form-control" type="number" placeholder="Tipo de cambio" name="tipoCambio"
+                            id="tipoCambio" [ngModel]="comprobante.tipoCambio" #tipoCambio="ngModel">
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <label for="total">Total</label>
+                        <input class="form-control" type="number" placeholder="total" name="total" id="total"
+                            [ngModel]="comprobante.total" required #total="ngModel">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-4">
+                        <label for="tipoComprobante">Tipo de comprobante </label>
+                        <select [ngModel]="comprobante.tipoDeComprobante" name="tipoComprobante" id="tipoComprobante"
+                            class="form-control">
+                            <option value="I">I</option>
+                            <option value="E">E</option>
+                            <option value="T">T</option>
+                            <option value="N">N</option>
+                            <option value="P">P</option>
+                        </select>
+                    </div>
+
+                    <div class="col-sm-12 col-md-4">
+                        <label for="metodoPago">Método de pago </label>
+                        <select [ngModel]="comprobante.metodoPago" name="metodoPago" id="metodoPago"
+                            class="form-control">
+                            <option value="PUE">PUE</option>
+                            <option value="PPD">PPD</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <label for="lugarExpedicion">Lugar de expedición</label>
+                        <input class="form-control" type="text" placeholder="lugarExpedicion" name="lugarExpedicion"
+                            id="lugarExpedicion" [ngModel]="comprobante.lugarExpedicion" required
+                            #lugarExpedicion="ngModel" class="form-control">
+                    </div>
+                </div>
+                <div class="card bg-light mt-3">
+                    <div class="card-header">
+                        Emisor
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-4">
+                                <label for="rfc" class="col-form-label">RFC</label>
+                                <input class="form-control" type="text" placeholder="RFC" name="rfc" id="rfc"
+                                    [ngModel]="comprobante.emisor.rfc" required #rfc="ngModel">
+                            </div>
+                            <div class="col-sm-12 col-md-4">
+                                <label for="nombre">Nombre</label>
+                                <input class="form-control" type="text" placeholder="Nombre" name="nombre" id="nombre"
+                                    [ngModel]="comprobante.emisor.nombre" required #nombre="ngModel">
+                            </div>
+                            <div class="col-sm-12 col-md-4">
+                                <label for="regimenFiscal">Régimen Fiscal</label>
+                                <input class="form-control" type="text" placeholder="Régimen Fiscal"
+                                    name="regimenFiscal" id="regimenFiscal" [ngModel]="comprobante.emisor.regimenFiscal"
+                                    required #regimenFiscal="ngModel">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="card bg-light mt-3">
+                    <div class="card-header">
+                        Receptor
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-4">
+                                <label for="rfcReceptor">RFC</label>
+                                <input class="form-control" type="text" placeholder="RFC" name="rfc" id="rfcReceptor"
+                                    [ngModel]="comprobante.receptor.rfc" required #rfc="ngModel">
+                            </div>
+                            <div class="col-sm-12 col-md-4">
+                                <label for="nombreReceptor">Nombre</label>
+                                <input class="form-control" type="text" placeholder="Nombre" name="nombreReceptor"
+                                    id="nombreReceptor" [ngModel]="comprobante.receptor.nombre" required
+                                    #nombre="ngModel">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="residenciaFiscal">Residencia Fiscal</label>
+                                <input class="form-control" type="text" placeholder="residenciFiscal"
+                                    name="residenciFiscal" id="residenciaFiscal"
+                                    [ngModel]="comprobante.receptor.residenciFiscal" required
+                                    #residenciFiscal="ngModel">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="numRegIdTrib">Número Registro ID Tributario</label>
+                                <input class="form-control" type="text" placeholder="NumRegIdTrib" name="numRegIdTrib"
+                                    id="numRegIdTrib" [ngModel]="comprobante.receptor.numRegIdTrib" required
+                                    #numRegIdTrib="ngModel">
+
+                            </div>
+                            <div class="col-md-4">
+                                <label for="usoCFDI">Uso CFDI</label>
+                                <select [ngModel]="comprobante.receptor.usoCFDI" name="usoCFDI" id="usoCFDI"
+                                    class="form-control">
+                                    <option value="P_01">P_01</option>
+                                    <option value="D_10">D_10</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card bg-light mt-3">
+                    <div class="card-header">
+                        <span>Cfdi Relacionados</span>
+                        <div class="text-center">
+                            <img class="iconStyle" src="assets/Img/plus.png" (click)="addCfdiRelacionado()"
+                                class="float-center">
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row" *ngFor="let i of comprobante.cfdiRelacionados">
+                                    <div class="col-md-3">
+                                        <label class="col-form-label">UUID</label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <label class="col-form-label">{{i.uuid}}</label>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img (click)="removeCfdiRelacionado(i)" class="iconStyle"
+                                            src="assets/Img/delete.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row" *ngIf="showSheetCfdiRelacionado">
+                            <div class="col-md-3">
+                                <label class="col-form-label">UUID</label>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <input (keyup.enter)="addingCfdiRelacionado(uuid)" class="form-control"
+                                            type="text" name="uuid" required [ngModel]="uuid" required #uuid="ngModel">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card bg-light mt-3">
+                    <div class="card-header">
+                        Conceptos
+                        <div class="text-center">
+                            <img class="iconStyle" src="assets/Img/plus.png" class="float-center">
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div *ngFor="let i of comprobante.conceptos">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-4">
+                                    <label class="col-form-label">Cuenta Predial</label>
+                                    <label class="col-form-label">{{i.cuentaPredial}}</label>
+                                </div>
+                                <div class="col-sm-12 col-md-4">
+                                    <label class="col-form-label">Clave Producto Servicio</label>
+                                    <label class="col-form-label">{{i.claveProdServ}}</label>
+                                </div>
+                                <div class="col-sm-12 col-md-4">
+                                    <label class="col-form-label">No. Identificacion</label>
+                                    <label class="col-form-label">{{i.noIdentificacion}}</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-4">
+                                    <label class="col-form-label">Cantidad</label>
+                                    <label class="col-form-label">{{i.cantidad}}</label>
+                                </div>
+                                <div class="col-sm-12 col-md-4">
+                                    <label class="col-form-label">Clave unidad</label>
+                                    <label class="col-form-label">{{i.claveUnidad}}</label>
+                                </div>
+                                <div class="col-sm-12 col-md-4">
+                                    <label class="col-form-label">Unidad</label>
+                                    <label class="col-form-label">{{i.unidad}}</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-4">
+                                    <label class="col-form-label">Descripción</label>
+                                    <label class="col-form-label">{{i.descripcion}}</label>
+                                </div>
+                                <div class="col-sm-12 col-md-4">
+                                    <label class="col-form-label">Valor Unitario</label>
+                                    <label class="col-form-label">{{i.valorUnitario}}</label>
+                                </div>
+                                <div class="col-sm-12 col-md-4">
+                                    <label class="col-form-label">Importe</label>
+                                    <label class="col-form-label">{{i.importe}}</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12">
+                                    <label class="col-form-label">Descuento</label>
+                                    <label class="col-form-label">{{i.descuento}}</label>
+                                </div>
+                            </div>
+
+                            <div class="card bg-light mt-3">
+                                <div class="card-header">
+                                    Parte
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-4">
+                                            <label class="col-form-label">Clave Producto servicio: </label>
+                                            <label class="col-form-label">{{i.parte.claveProdServ}}</label>
+                                        </div>
+                                        <div class="col-sm-12 col-md-4">
+                                            <label class="col-form-label">No. de Identificacion</label>
+                                            <label class="col-form-label">{{i.parte.noIdentificacion}}</label>
+                                        </div>
+                                        <div class="col-sm-12 col-md-4">
+                                            <label class="col-form-label">Cantidad</label>
+                                            <label class="col-form-label">{{i.parte.cantidad}}</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-4">
+                                            <label class="col-form-label">Unidad: </label>
+                                            <label class="col-form-label">{{i.parte.unidad}}</label>
+                                        </div>
+                                        <div class="col-sm-12 col-md-4">
+                                            <label class="col-form-label">Descripción</label>
+                                            <label class="col-form-label">{{i.parte.descripcion}}</label>
+                                        </div>
+                                        <div class="col-sm-12 col-md-4">
+                                            <label class="col-form-label">Valor unitario</label>
+                                            <label class="col-form-label">{{i.parte.cantvalorUnitarioidad}}</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-4">
+                                            <label class="col-form-label">Importe: </label>
+                                            <label class="col-form-label">{{i.parte.importe}}</label>
+                                        </div>
+                                    </div>
+                                    <div class="card bg-light mt-3">
+                                        <div class="card-header">
+                                            Información aduaneara
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="row" *ngFor="let j of i.parte.informacionAduaneraParte">
+                                                        <div class="col-md-3">
+                                                            <label class="col-form-label">No. pedimento</label>
+                                                        </div>
+                                                        <div class="col-md-7">
+                                                            <label class="col-form-label">{{j.numeroPedimento}}</label>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <img class="iconStyle" src="assets/Img/delete.png">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card bg-light mt-3">
+                                <div class="card-header">
+                                    Retenciones
+                                </div>
+                            <div class="card-body">
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row mt-3">
+                    <div class="container">
+                        <div class="float-right">
+                            <button type="submit" class="marginButton  btn btn-outline-success btn-lg">
+                                Guardar
+                            </button>
+                            <button (click)="closeModal()" class=" marginButton  btn btn-outline-danger btn-lg">
+                                Cancelar
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+
+</div>

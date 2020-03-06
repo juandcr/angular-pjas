@@ -1,0 +1,65 @@
+<div class="jumbotron">
+    <h1 class="display-4">Formulario de prueba</h1>    
+    <p>Sirve para normalizar los formularios a crear, están dentro de un jumbotron de bootstrap y con clases de form group y form control</p>
+    <a href="https://getbootstrap.com/docs/4.0/components/forms/">Click aquí para revisar la documentación de formularios</a>
+    <hr class="my-4">
+
+    <form >
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label for="input1">RFC</label>
+                    <input type="text" class="form-control" id="rfc" aria-describedby="help" placeholder="(por decir, RFC)" required>
+                    <small id="help" class="form-text text-muted">Nota debajo del input/usar para ayudar a la captura de información </small>
+                </div>                
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6">                
+                <div class="form-group">          
+                    <label for="input2">CURP</label>
+                    <input type="password" class="form-control" id="curp" placeholder="(Por decir, CURP)">
+                    <small id="help2" class="form-text text-muted">Input2 con label</small>
+                </div>
+            </div>
+        </div>
+        <p> Datos extra de la empresa</p>
+        <hr class="my-4">
+
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-6">
+                <div class="form-group">                    
+                    <input type="text" class="form-control" id="razonSocial"  placeholder="Nombre / Razón social" required>                    
+                </div>                
+            </div>            
+            <div class="col-sm-12 col-md-6 col-lg-6">
+                <div class="form-group">                    
+                    <input type="text" class="form-control" id="giro"  placeholder="Giro de la empresa" required>                    
+                </div>                
+            </div>
+        </div>        
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-6">
+                <div class="form-group">                    
+                    <input type="number" class="form-control" id="numEmpleados"  placeholder="Número de empleados" >
+                </div>                
+            </div>            
+            <div class="col-sm-12 col-md-6 col-lg-6">
+                <div class="form-group">                    
+                    <input type="text" class="form-control" id="otro" placeholder="OtroDato" >                    
+                </div>                
+            </div>
+        </div>        
+
+        
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-6">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Activa</label>
+                  </div>                  
+            </div>
+        </div>        
+        
+        <input type="submit" class="btn btn-primary btn-block mt-5" value="Enviar">
+    </form>    
+    
+</div>
